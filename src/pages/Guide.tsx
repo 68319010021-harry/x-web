@@ -1,22 +1,85 @@
+import { useEffect, useState } from "react"
 import Page from "../components/Page"
-const POSTCARD_1X = "/cards/guide.webp"      // วางไฟล์ใน public/cards/
-const POSTCARD_2X = "/cards/guide1.webp"   // (ไม่มีก็ลบ srcSet ออกได้)
-const ALT_TEXT = "ไกด์"
+
+// ตั้งรายการภาพที่อยากให้สลับ (เพิ่ม/ลบได้ตามต้องการ)
+const CARDS = [
+  {
+    key: "mouse",
+    label: "เมาส์",
+    img1x: "/cards/guide.webp",
+    alt: "ไกด์เมาส์",
+  },
+  {
+    key: "keyboard",
+    label: "คีย์บอร์ด",
+    img1x: "/cards/guide-kb.webp",
+    img2x: "/cards/guide-kb@2x.webp",
+    alt: "ไกด์คีย์บอร์ด",
+  },
+  {
+    key: "mousepad",
+    label: "แผ่นรอง",
+    img1x: "/cards/guide-pad.webp",
+    img2x: "/cards/guide-pad@2x.webp",
+    alt: "ไกด์แผ่นรอง",
+  },
+] as const
+
 export default function Guide(){
+  const [active, setActive] = useState<(typeof CARDS)[number]["key"]>(CARDS[0].key)
+
+  const current = CARDS.find(c => c.key === active) ?? CARDS[0]
+
+  // กดซ้าย/ขวาเพื่อสลับภาพได้
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return
+      e.preventDefault()
+      const idx = CARDS.findIndex(c => c.key === active)
+      const next = e.key === "ArrowRight" ? (idx + 1) % CARDS.length : (idx - 1 + CARDS.length) % CARDS.length
+      setActive(CARDS[next].key)
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [active])
+
   return (
     <Page title="Gear Guide" subtitle="เลือกอุปกรณ์ให้เหมาะกับมือและสไตล์การเล่นของคุณ">
-      <div className="rounded-2xl overflow-hidden border border-base-100/40 shadow-sm hover:shadow-md transition">
+      {/* Toggle */}
+      <div className="mb-4">
+        <div className="join">
+          {CARDS.map(c => (
+            <button
+              key={c.key}
+              type="button"
+              onClick={() => setActive(c.key)}
+              className={
+                "btn join-item btn-sm " +
+                (active === c.key ? "btn-primary" : "btn-ghost")
+              }
+              aria-pressed={active === c.key}
+            >
+              {c.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Postcard (เปลี่ยนตาม toggle) */}
+      <div className="rounded-2xl overflow-hidden border border-base-300/40 shadow-sm hover:shadow-md transition">
         <figure className="relative aspect-[3/2] bg-base-200">
           <img
-            src={POSTCARD_1X}
-            srcSet={`${POSTCARD_1X} 1x, ${POSTCARD_2X} 2x`}
-            alt={ALT_TEXT}
+            src={current.img1x}
+            srcSet={`${current.img1x} 1x, {current.img2x} 2x`$}
+            alt={current.alt}
             className="absolute inset-0 w-full h-full object-cover"
             loading="lazy"
           />
         </figure>
       </div>
-      <article className="tile p-6 md:p-8 prose-eksgg">
+
+      {/* เนื้อหาเดิม */}
+      <article className="tile p-6 md:p-8 prose-eksgg mt-6">
         <h2>เมาส์: รูปทรง/น้ำหนัก/ผิวสัมผัส</h2>
         <p>เริ่มจากขนาดมือและวิธีจับ (Claw, Palm, Fingertip)…</p>
 
