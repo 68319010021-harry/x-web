@@ -104,9 +104,9 @@ export const products: Product[] = [
     name: "MonsGeek FUN60 Ultra TMR 61",
     brand: "MonsGeek",
     category: "keyboard",
-    priceTHB: 2890,
-    description: "OmniPoint 2.0 ปรับระยะกดได้ รายละเอียดงานเนี๊ยบ",
-    specs: ["OmniPoint 2.0", "TKL", "Per-key", "Rapid Trigger"],
+    priceTHB: 2450,
+    description: "MonsGeek FUN Ultra ออกแบบมาในสไตล์ 60% Aluminum Keyboard ที่มาพร้อมกับ Ultra Magnetic Switch",
+    specs: [" Hot-swappable", "Layout 60%", "Rapid Trigger"],
     image: "/products/FUN60 Ultra.png",
     images: ["/products/FUN60 Ultra.png","/products/FUN60 Ultra1.png"],
     inStock: true
@@ -183,7 +183,7 @@ export const products: Product[] = [
     priceTHB: 3490,
     description: "ตำแหน่งเสียงแม่น ไมค์คม เน้นแข่ง",
     specs: ["TriForce 50mm", "Detachable mic", "USB card"],
-    image: "/products/razer-blackshark-v2.jpg",
+    image: "/products/razer-blackshark-v2.png",
     inStock: true
   },
   {

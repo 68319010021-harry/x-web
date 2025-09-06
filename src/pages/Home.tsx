@@ -3,7 +3,7 @@ import { site } from "../config/site"
 import { products, formatTHB } from "../data/products"
 
 const categories = [
-  { key: "mouse", label: "Mice", grad: "tile-grad-1" },
+  { key: "mouse", label: "Mouse", grad: "tile-grad-1" },
   { key: "keyboard", label: "Keyboards", grad: "tile-grad-2" },
   { key: "mousepad", label: "Mousepads", grad: "tile-grad-3" },
   { key: "headset", label: "Headsets", grad: "tile-grad-2" },
