@@ -12,17 +12,11 @@ const CARDS = [
   {
     key: "keyboard",
     label: "คีย์บอร์ด",
-    img1x: "/cards/guide-kb.webp",
+    img1x: "/cards/guide1.webp",
     img2x: "/cards/guide-kb@2x.webp",
     alt: "ไกด์คีย์บอร์ด",
   },
-  {
-    key: "mousepad",
-    label: "แผ่นรอง",
-    img1x: "/cards/guide-pad.webp",
-    img2x: "/cards/guide-pad@2x.webp",
-    alt: "ไกด์แผ่นรอง",
-  },
+  
 ] as const
 
 export default function Guide(){
@@ -70,7 +64,7 @@ export default function Guide(){
         <figure className="relative aspect-[3/2] bg-base-200">
           <img
             src={current.img1x}
-            srcSet={`${current.img1x} 1x, {current.img2x} 2x`$}
+            srcSet={`${current.img1x} 1x`}
             alt={current.alt}
             className="absolute inset-0 w-full h-full object-cover"
             loading="lazy"
