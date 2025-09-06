@@ -102,12 +102,13 @@ export const products: Product[] = [
     id: 6,
     slug: "MonsGeek FUN60 Ultra TMR 61",
     name: "MonsGeek FUN60 Ultra TMR 61",
-    brand: "SteelSeries",
+    brand: "MonsGeek",
     category: "keyboard",
     priceTHB: 2890,
     description: "OmniPoint 2.0 ปรับระยะกดได้ รายละเอียดงานเนี๊ยบ",
     specs: ["OmniPoint 2.0", "TKL", "Per-key", "Rapid Trigger"],
-    image: "/products/steelseries-apex-pro-tkl-2023.jpg",
+    image: "/products/FUN60 Ultra.png",
+    images: ["/products/FUN60 Ultra.png","/products/FUN60 Ultra1.png"],
     inStock: true
   },
   {

@@ -1,7 +1,7 @@
 import Page from "../components/Page"
-const POSTCARD_1X = "/cards/warranty-24m.webp"      // วางไฟล์ใน public/cards/
-const POSTCARD_2X = "/cards/warranty-24m@2x.webp"   // (ไม่มีก็ลบ srcSet ออกได้)
-const ALT_TEXT = "วฺ"
+const POSTCARD_1X = "/cards/guide.webp"      // วางไฟล์ใน public/cards/
+const POSTCARD_2X = "/cards/guide1.webp"   // (ไม่มีก็ลบ srcSet ออกได้)
+const ALT_TEXT = "ไกด์"
 export default function Guide(){
   return (
     <Page title="Gear Guide" subtitle="เลือกอุปกรณ์ให้เหมาะกับมือและสไตล์การเล่นของคุณ">

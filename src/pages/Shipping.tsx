@@ -1,7 +1,7 @@
 import Page from "../components/Page"
-const POSTCARD_1X = "/cards/warranty-24m.webp"      // วางไฟล์ใน public/cards/
+const POSTCARD_1X = "/cards/shipping.webp"      // วางไฟล์ใน public/cards/
 const POSTCARD_2X = "/cards/warranty-24m@2x.webp"   // (ไม่มีก็ลบ srcSet ออกได้)
-const ALT_TEXT = "แ"
+const ALT_TEXT = "ขนส่ง"
 export default function Shipping(){
   return (
     <Page title="Shipping Policy" subtitle="จัดส่งจันทร์–เสาร์ ยกเว้นวันหยุดนักขัตฤกษ์">
